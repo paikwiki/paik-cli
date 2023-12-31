@@ -1,0 +1,3 @@
+[submodule "paik_cli/packages/paik2json"]
+	path = paik_cli/packages/paik2json
+	url = https://github.com/paikwiki/paik2json.git
