@@ -1,6 +1,15 @@
+import re
+
+JIRA_URL = "https://APP_NAME.atlassian.net/browse"
+
 class Line:
     def __init__(self, str: str, odd: bool = False) -> None:
-        self.str = str.rstrip()
+        self.str = re.sub(
+            "\\[([A-Z]+\\-[0-9]+)\\]\\s(.+)",
+            f"\\2 {JIRA_URL}/\\1",
+            str.rstrip(),
+        )
+
         self.depth = self.__calc_depth(str, odd)
         self.sub_content_type = self.__type(str)
         self.odd = odd
