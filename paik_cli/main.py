@@ -1,10 +1,12 @@
 import json
+import re
 import inquirer
 from paik2json.line_manager import LineManager
 from paik2json.parser import Parser
 from config import AppConfig
 
 config = AppConfig(memo_folder_path="sample")
+JIRA_URL = "https://APP_NAME.atlassian.net/browse"
 
 
 def run():
@@ -12,7 +14,14 @@ def run():
     with open(file_path, "r") as f:
         greeting = f.read()
 
-    parser = Parser(LineManager(greeting))
+    def hook(str):
+        return re.sub(
+            "\\[([A-Z]+\\-[0-9]+)\\]\\s(.+)",
+            f"\\2 {JIRA_URL}/\\1",
+            str,
+        )
+
+    parser = Parser(LineManager(greeting), hook)
     memo = parser.parse()
 
     choices = [title for title in memo.keys()]
