@@ -1,11 +1,13 @@
 import json
 import re
+from dotenv import dotenv_values, load_dotenv
 import inquirer
 from paik2json import LineManager, Parser
 from config import AppConfig
 
-config = AppConfig(memo_folder_path="sample")
-JIRA_URL = "https://APP_NAME.atlassian.net/browse"
+load_dotenv()
+env = dotenv_values(".env")
+config = AppConfig(memo_folder_path=env["MEMO_FOLDER_PATH"])
 
 
 def run():
@@ -16,7 +18,7 @@ def run():
     def hook(str):
         return re.sub(
             "\\[([A-Z]+\\-[0-9]+)\\]\\s(.+)",
-            f"\\2 {JIRA_URL}/\\1",
+            f"\\2 {env["JIRA_URL2"]}/\\1",
             str,
         )
 
