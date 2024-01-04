@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 python-inquirer = "^1.0.3"
 paik2json = "0.0.4"
+python-dotenv = "^1.0.0"
 
 
 [build-system]
