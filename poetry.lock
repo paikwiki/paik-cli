@@ -2,13 +2,13 @@
 
 [[package]]
 name = "paik2json"
-version = "0.0.3"
+version = "0.0.4"
 description = "convert paik to json"
 optional = false
 python-versions = "*"
 files = [
-    {file = "paik2json-0.0.3-py3-none-any.whl", hash = "sha256:ff5b247c1513fe544b3d046f0d748400e6151d6c89a6051b4547d9cce524004d"},
-    {file = "paik2json-0.0.3.tar.gz", hash = "sha256:85e6f95ddbb833e7022d7c6cd2844294e2c5c19e04119b3b80e141706978826f"},
+    {file = "paik2json-0.0.4-py3-none-any.whl", hash = "sha256:75202ee35dca4a379820385e522dcac6ac4af9d63895bdc738efc5576d566539"},
+    {file = "paik2json-0.0.4.tar.gz", hash = "sha256:f92c91f88c42df1d6ec8a4d069c50e24c617774d70c9608b2e2a69b7372719f1"},
 ]
 
 [[package]]
@@ -182,4 +182,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "1dd25a26741b6c2849fbebb8458e5b7c4dc90dcda2fec04e71b1c802526891c1"
+content-hash = "86d57d71d1998b1eb81ab4fb2a4f5731a53fa34f2e221705476eb843d013a5a2"

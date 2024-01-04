@@ -1,8 +1,7 @@
 import json
 import re
 import inquirer
-from paik2json.line_manager import LineManager
-from paik2json.parser import Parser
+from paik2json import LineManager, Parser
 from config import AppConfig
 
 config = AppConfig(memo_folder_path="sample")
