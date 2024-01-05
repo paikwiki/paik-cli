@@ -2,7 +2,7 @@ import json
 import re
 from dotenv import dotenv_values, load_dotenv
 import inquirer
-from paik2json import LineManager, Parser
+from paik2json import Parser
 from config import AppConfig
 
 load_dotenv()
@@ -13,7 +13,7 @@ config = AppConfig(memo_folder_path=env["MEMO_FOLDER_PATH"])
 def run():
     file_path = f"{config.memo_folder_path}/work-note-202401.paik"
     with open(file_path, "r") as f:
-        greeting = f.read()
+        note = f.read()
 
     def hook(str):
         return re.sub(
@@ -22,7 +22,7 @@ def run():
             str,
         )
 
-    parser = Parser(LineManager(greeting), hook)
+    parser = Parser(note, hook)
     memo = parser.parse()
 
     choices = [title for title in memo.keys()]
