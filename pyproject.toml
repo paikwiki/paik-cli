@@ -8,8 +8,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 python-inquirer = "^1.0.3"
-paik2json = "0.1.0"
 python-dotenv = "^1.0.0"
+paik2json = "0.2.0"
+inquirer = "^3.2.0"
 
 
 [build-system]
