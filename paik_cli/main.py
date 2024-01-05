@@ -11,14 +11,14 @@ config = AppConfig(memo_folder_path=env["MEMO_FOLDER_PATH"])
 
 
 def run():
-    file_path = f"{config.memo_folder_path}/memo-202401.paik"
+    file_path = f"{config.memo_folder_path}/work-note-202401.paik"
     with open(file_path, "r") as f:
         greeting = f.read()
 
     def hook(str):
         return re.sub(
             "\\[([A-Z]+\\-[0-9]+)\\]\\s(.+)",
-            f"\\2 {env["JIRA_URL2"]}/\\1",
+            f"\\2 {env['JIRA_URL']}/\\1",
             str,
         )
 
