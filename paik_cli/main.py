@@ -18,7 +18,7 @@ def run():
     def hook(str):
         return re.sub(
             "\\[([A-Z]+\\-[0-9]+)\\]\\s(.+)",
-            f"\\2 {env['JIRA_URL']}/\\1",
+            f"[\\1] \\2 {env['JIRA_URL']}/\\1",
             str,
         )
 
