@@ -1,3 +1,4 @@
+import datetime
 import json
 import re
 from dotenv import dotenv_values, load_dotenv
@@ -8,7 +9,9 @@ from config import AppConfig
 load_dotenv()
 env = dotenv_values(".env")
 config = AppConfig(
-    memo_folder_path=env["MEMO_FOLDER_PATH"], exclude_h1_titles=["icons"]
+    memo_folder_path=env["MEMO_FOLDER_PATH"],
+    exclude_h1_titles=["icons"],
+    titles_for_summary=["did", "willDo"],
 )
 
 
@@ -28,6 +31,7 @@ def run():
     memo = parser.parse()
 
     choices = [title for title in memo.keys() if title not in config.exclude_h1_titles]
+    choices = [f"{choice} - summary" for choice in choices] + choices
 
     questions = [
         inquirer.List(
@@ -40,8 +44,13 @@ def run():
     answers = inquirer.prompt(questions)
     h1_title = answers["h1_title"]
 
+    data = {}
     if h1_title == "All":
         data = memo
+    elif h1_title.endswith(" - summary"):
+        title = h1_title.replace(" - summary", "")
+        for summary_title in config.titles_for_summary:
+            data[summary_title] = memo[title][summary_title]
     else:
         data = memo[h1_title]
 
