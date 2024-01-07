@@ -5,11 +5,14 @@ from dotenv import dotenv_values, load_dotenv
 import inquirer
 from paik2json import Parser
 from config import AppConfig
+from scrum import print_for_scrum
 
 load_dotenv()
 env = dotenv_values(".env")
+
 config = AppConfig(
     memo_folder_path=env["MEMO_FOLDER_PATH"],
+    jira_url=env["JIRA_URL"],
     exclude_h1_titles=["icons"],
     titles_for_summary=["did", "willDo"],
 )
@@ -23,7 +26,7 @@ def run():
     def hook(str):
         return re.sub(
             "\\[([A-Z]+\\-[0-9]+)\\]\\s(.+)",
-            f"[\\1] \\2 {env['JIRA_URL']}/\\1",
+            f"[\\1] \\2 {config.jira_url}/\\1",
             str,
         )
 
@@ -37,12 +40,16 @@ def run():
         inquirer.List(
             "h1_title",
             message="select 1st heading",
-            choices=["All"] + choices,
+            choices=["All", "for scrum"] + choices,
         ),
     ]
 
     answers = inquirer.prompt(questions)
     h1_title = answers["h1_title"]
+
+    if h1_title == "for scrum":
+        print_for_scrum(memo, config)
+        return
 
     data = {}
     if h1_title == "All":
