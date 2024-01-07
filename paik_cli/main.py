@@ -7,7 +7,9 @@ from config import AppConfig
 
 load_dotenv()
 env = dotenv_values(".env")
-config = AppConfig(memo_folder_path=env["MEMO_FOLDER_PATH"])
+config = AppConfig(
+    memo_folder_path=env["MEMO_FOLDER_PATH"], exclude_h1_titles=["icons"]
+)
 
 
 def run():
@@ -25,7 +27,8 @@ def run():
     parser = Parser(note, hook)
     memo = parser.parse()
 
-    choices = [title for title in memo.keys()]
+    choices = [title for title in memo.keys() if title not in config.exclude_h1_titles]
+
     questions = [
         inquirer.List(
             "h1_title",
