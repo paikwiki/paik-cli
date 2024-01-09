@@ -26,16 +26,8 @@ def print_for_scrum(memo, config):
     }
     now = datetime.datetime.now()
     now_weekday = now.strftime("%a")
-    if now_weekday == "Mon":
-        target_date = now - datetime.timedelta(3)
-    elif now_weekday == "Sun":
-        target_date = now - datetime.timedelta(2)
-    else:
-        target_date = now - datetime.timedelta(1)
 
-    weekday = target_date.strftime("%a")
-
-    h1_title = f"📝 Note-{target_date.strftime('%Y%m%d')}({weeks[weekday]})"
+    h1_title = f"📝 Note-{now.strftime('%Y%m%d')}({weeks[now_weekday]})"
 
     data = {"did": memo[h1_title]["did"], "willDo": memo[h1_title]["willDo"]}
 
