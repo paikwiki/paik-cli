@@ -74,13 +74,13 @@ ansicon = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "paik2json"
-version = "0.2.0"
+version = "0.2.1"
 description = "convert paik to json"
 optional = false
 python-versions = "*"
 files = [
-    {file = "paik2json-0.2.0-py3-none-any.whl", hash = "sha256:42cd5be1b57f5d9d2e011ad152527a0fc01cbf236fe7cef2b6ce357073e07a03"},
-    {file = "paik2json-0.2.0.tar.gz", hash = "sha256:695ef7f0ec3906dd6b24066e8753a35b943c3812dee2fe3db4ef1a24985a46a8"},
+    {file = "paik2json-0.2.1-py3-none-any.whl", hash = "sha256:0141ec997f44c0ca97df3fcd8bf6c8e242004f489114c4ae900dd0c925f71fbe"},
+    {file = "paik2json-0.2.1.tar.gz", hash = "sha256:43ff37622757c944031e884ebfd35512906d821b3885bbcd9214bfc878d7e688"},
 ]
 
 [[package]]
@@ -323,4 +323,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "eaf7f3885299ff00b5f0069e3808ff87fa42131ee510e200b1b93c27cda7dbc0"
+content-hash = "b1eb6c39bcd02572421def844b05de143b33989d1a385fe5f7646a2000406b52"
