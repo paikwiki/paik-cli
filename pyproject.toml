@@ -11,6 +11,7 @@ python-inquirer = "^1.0.3"
 python-dotenv = "^1.0.0"
 paik2json = "0.2.1"
 inquirer = "^3.2.0"
+pyperclip = "^1.8.2"
 
 
 [build-system]
