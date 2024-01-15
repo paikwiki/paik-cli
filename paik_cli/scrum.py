@@ -30,7 +30,6 @@ def print_for_scrum(memo, config):
     now_weekday = now.strftime("%a")
 
     h1_title = f"📝 Note-{now.strftime('%Y%m%d')}({weeks[now_weekday]})"
-    h1_title = "📝 Note-20240112(금)"
     data = {"did": memo[h1_title]["did"], "willDo": memo[h1_title]["willDo"]}
 
     for key in data:
